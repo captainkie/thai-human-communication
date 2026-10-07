@@ -1,5 +1,8 @@
 # thai-human-communication
 
+[![npm](https://img.shields.io/npm/v/thai-human-communication)](https://www.npmjs.com/package/thai-human-communication)
+[![licence: MIT](https://img.shields.io/badge/licence-MIT-blue)](LICENSE)
+
 An agent skill that makes a coding agent talk **natural Thai, the way a senior Thai
 developer talks to a teammate**. Thai is the main language, common technical terms stay
 in English, the answer comes first, and the stock AI-assistant phrasing is left out.
@@ -12,22 +15,28 @@ instead of
 
 ## Install
 
+Pick one. Both install the same file.
+
+**skills CLI** ([skills.sh](https://skills.sh)): detects your agents (Claude Code,
+Cursor, Codex, and others) and asks where to install.
+
 ```bash
 npx skills add captainkie/thai-human-communication
-```
-
-This uses the [skills CLI](https://skills.sh). It detects your agents (Claude Code,
-Cursor, Codex, and others) and asks where to install. Common variants:
-
-```bash
 npx skills add captainkie/thai-human-communication -g        # user-level, every project
-npx skills add captainkie/thai-human-communication -a claude-code -g -y
 npx skills update thai-human-communication                   # pull the latest version
 npx skills remove thai-human-communication
 ```
 
-To install by hand, copy `skills/thai-human-communication/` into `~/.claude/skills/`
-for one user or into `.claude/skills/` for one repository.
+**npm package**: installs straight into Claude Code.
+
+```bash
+npx thai-human-communication                 # ~/.claude/skills (every project)
+npx thai-human-communication --project       # ./.claude/skills (this repo only)
+npx thai-human-communication --dir <path>    # somewhere explicit
+```
+
+Re-run it to update. To install by hand, copy `skills/thai-human-communication/` into
+`~/.claude/skills/`.
 
 ## What it changes
 
@@ -48,7 +57,8 @@ a test passed, or claim a command ran when it did not.
 
 ```
 skills/thai-human-communication/
-  SKILL.md
+  SKILL.md          the skill
+bin/install.js      npm installer
 ```
 
 ## Licence
